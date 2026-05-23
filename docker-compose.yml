@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     ports:
-      - "3000:3000"
+      - "6666:3000"
     volumes:
       # Persist the SQLite database
       - luna-db:/app/data
