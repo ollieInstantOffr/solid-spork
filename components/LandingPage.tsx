@@ -410,7 +410,7 @@ export function LandingPage() {
                   <span className="text-2xl">🌸</span>
                   <div>
                     <p className="font-semibold text-sm" style={{ fontFamily: "var(--font-display)" }}>Luna</p>
-                    <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>Partner view for Sofia</p>
+                    <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>Partner view for Regina</p>
                   </div>
                 </div>
 
@@ -423,7 +423,7 @@ export function LandingPage() {
 
                 {/* Needs */}
                 <div className="rounded-2xl p-3" style={{ background: "var(--secondary)" }}>
-                  <p className="text-xs font-bold mb-2" style={{ color: "var(--muted-foreground)" }}>💌 What Sofia needs right now</p>
+                  <p className="text-xs font-bold mb-2" style={{ color: "var(--muted-foreground)" }}>💌 What Regina needs right now</p>
                   <div className="flex flex-wrap gap-1.5">
                     {["🍫 Chocolate", "💆 Massage", "🎬 Movie night", "🌡️ Hot water bottle"].map((t) => (
                       <span key={t} className="text-xs font-semibold px-2.5 py-1 rounded-full"

@@ -94,7 +94,7 @@ export function OnboardingForm({ email }: Props) {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Sofia"
+                placeholder="e.g. Regina"
                 autoFocus
               />
             </div>

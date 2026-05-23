@@ -56,7 +56,7 @@ const STEPS = [
     visual: (
       <div className="mt-4 rounded-2xl p-4"
         style={{ background: "rgba(212,96,122,0.08)", border: "1px solid rgba(212,96,122,0.20)" }}>
-        <p className="text-xs font-bold mb-2" style={{ color: "#D4607A" }}>💌 What Sofia needs right now</p>
+        <p className="text-xs font-bold mb-2" style={{ color: "#D4607A" }}>💌 What Regina needs right now</p>
         <div className="flex flex-wrap gap-1.5">
           {["🍫 Chocolate", "💆 Massage", "🎬 Movie night"].map((t) => (
             <span key={t} className="text-xs font-semibold px-2.5 py-1 rounded-full"
