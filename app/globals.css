@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Soft pink palette */
+  --background: #FFF0F5;
+  --foreground: #3D1A2E;
+  --card: #FFFAFC;
+  --card-foreground: #3D1A2E;
+  --popover: #FFFAFC;
+  --popover-foreground: #3D1A2E;
+  --primary: #C4607A;
+  --primary-foreground: #FFF0F5;
+  --secondary: #FCE8F0;
+  --secondary-foreground: #8B3A56;
+  --muted: #FAE0EB;
+  --muted-foreground: #A0607A;
+  --accent: #E8B4C8;
+  --accent-foreground: #3D1A2E;
+  --destructive: #E05070;
+  --destructive-foreground: #FFF0F5;
+  --border: #F2CCDA;
+  --input: #F2CCDA;
+  --ring: #C4607A;
+  --radius: 1rem;
+  --gold: #E8C88A;
+  --gold-dark: #C8A860;
+  --sparkle-color: #E8C88A;
+
+  /* Phase colors — soft & rosy */
+  --menstrual: #D4607A;
+  --follicular: #F4A0B8;
+  --ovulation: #E8C050;
+  --luteal: #C090CC;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Mesh gradient is set dynamically by ThemeProvider */
+  background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Animations ─────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(1deg); }
+  66%       { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes sparkle-pop {
+  0%   { transform: scale(0) rotate(0deg);   opacity: 0; }
+  50%  { transform: scale(1.3) rotate(15deg); opacity: 1; }
+  100% { transform: scale(1) rotate(10deg);  opacity: 0.85; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.6); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196,96,122,0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 12px rgba(196,96,122,0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196,96,122,0); }
+}
+
+@keyframes nav-pop {
+  0%   { transform: scale(1) translateY(0); }
+  35%  { transform: scale(1.35) translateY(-4px); }
+  65%  { transform: scale(0.90) translateY(0); }
+  82%  { transform: scale(1.08) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+@keyframes nav-ripple {
+  0%   { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+@keyframes label-up {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up   { animation: fade-up 0.5s ease-out both; }
+.animate-float     { animation: float 5s ease-in-out infinite; }
+.animate-shimmer   { animation: shimmer 3s linear infinite; }
+.animate-twinkle   { animation: twinkle 2s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+/* ─── Shimmer text ───────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--gold) 40%,
+    var(--primary) 60%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Sparkle decorator (CSS only) ──────────── */
+.sparkle-container {
+  position: relative;
+}
+.sparkle-container::before,
+.sparkle-container::after {
+  content: '✦';
+  position: absolute;
+  color: var(--gold);
+  font-size: 12px;
+  animation: twinkle 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+.sparkle-container::before { top: -6px;  right: 4px;  animation-delay: 0s; }
+.sparkle-container::after  { top: 2px;   right: -10px; animation-delay: 1.2s; }
+
+/* ─── Cards ─────────────────────────────────── */
+.pink-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow:
+    0 2px 12px rgba(196,96,122,0.06),
+    0 1px 3px rgba(196,96,122,0.04);
+}
+
+.pink-card-glow {
+  background: var(--card);
+  border: 1px solid rgba(232,180,200,0.6);
+  border-radius: var(--radius);
+  box-shadow:
+    0 4px 24px rgba(196,96,122,0.1),
+    0 0 0 1px rgba(232,200,138,0.15) inset;
+}
+
+/* ─── Gradient button overlay ────────────────── */
+.btn-pink-gradient {
+  background: linear-gradient(135deg, #D4607A 0%, #C4507A 50%, #D46090 100%);
+  background-size: 200% auto;
+  transition: background-position 0.4s ease, transform 0.15s ease;
+}
+.btn-pink-gradient:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+}
+
+/* ─── Smooth scroll ──────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ─── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+/* ─── Focus rings ────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
